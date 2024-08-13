@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRepositories } from "@/redux/graphQL/features/data-manipulations";
 import { RootState, AppDispatch } from "@/redux/graphQL/store";
-import SearchResults from "@/components/table";
+import SearchResults from "@/components/search-result";
 import Info from "@/components/info";
 
 export default function Home() {
@@ -41,6 +41,7 @@ export default function Home() {
                 {searched ? (
                     <>
                         <div className={styles.tableWrapper}>
+                            <h2>Результаты поиска</h2>
                             <SearchResults onRowClick={setSelectedRepo} />
                         </div>
                         <div className={styles.infoBlock}>

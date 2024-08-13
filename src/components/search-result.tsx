@@ -30,7 +30,7 @@ export default function SearchResults({
     if (error) return <p>Ошибка: {error}</p>;
 
     return (
-        <>
+        <div>
             <DataGrid
                 rows={repositories.map((repo, index) => ({
                     id: index + 1,
@@ -53,6 +53,6 @@ export default function SearchResults({
                 pageSizeOptions={[10, 20, 30, 40]}
                 onRowClick={(params) => onRowClick(params.row)}
             />
-        </>
+        </div>
     );
 }
