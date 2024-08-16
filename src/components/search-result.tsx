@@ -3,6 +3,7 @@ import React from "react";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/graphQL/store";
+import TableSkeleton from "./skeletons/table-skeleton";
 
 const columns: GridColDef[] = [
     { field: "name", headerName: "Название", flex: 1 },
@@ -26,7 +27,12 @@ export default function SearchResults({
         (state: RootState) => state.github
     );
 
-    if (loading) return <p>Загрузка...</p>;
+    if (loading)
+        return (
+            <div>
+                <TableSkeleton />
+            </div>
+        );
     if (error) return <p>Ошибка: {error}</p>;
 
     return (
